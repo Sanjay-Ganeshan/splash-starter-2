@@ -13,4 +13,13 @@ public class CollectorScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+            // UPDATE LIVES
+        }
+    }
 }

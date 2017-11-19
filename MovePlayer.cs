@@ -18,8 +18,8 @@ public class MovePlayer : MonoBehaviour {
 
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
-        this.gameObject.transform.Translate(verticalMovement * movementSpeed * Vector3.forward, Space.Self);
-        this.gameObject.transform.Rotate(Vector3.up, horizontalMovement * angularSpeed, Space.Self);
+        this.gameObject.transform.Translate(verticalMovement * movementSpeed * Time.deltaTime * Vector3.forward, Space.Self);
+        this.gameObject.transform.Rotate(Vector3.up, horizontalMovement * Time.deltaTime * angularSpeed, Space.Self);
 
 
     }

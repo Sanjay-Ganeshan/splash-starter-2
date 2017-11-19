@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EvilAI : MonoBehaviour {
 
@@ -10,9 +11,11 @@ public class EvilAI : MonoBehaviour {
 
     private float timeSinceSetDestination = 0f;
 
+    private NavMeshAgent agent;
+
 	// Use this for initialization
 	void Start () {
-		
+        agent = GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +23,7 @@ public class EvilAI : MonoBehaviour {
         timeSinceSetDestination = timeSinceSetDestination + Time.deltaTime;
         if(timeSinceSetDestination > timeUntilSetDestination)
         {
-            // SET THE DESTINATION
+            agent.SetDestination(GameObject.FindGameObjectWithTag("Collector").transform.position);
             timeSinceSetDestination = 0;
         }
 	}
